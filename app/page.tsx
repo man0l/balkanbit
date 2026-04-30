@@ -4,24 +4,28 @@ const phases = [
     phase: "Ideation",
     action: "Scouting market gaps in AI and mobile — validating before building.",
     role: "Market Research",
+    image: "/phase-ideation.webp",
   },
   {
     number: "02",
     phase: "Engineering",
     action: "Rapid prototyping on a shared core — MVPs in weeks, not months.",
     role: "Full-stack Dev",
+    image: "/phase-engineering.webp",
   },
   {
     number: "03",
     phase: "Capital",
     action: "Studio-funded seed capital deployed at the right inflection point.",
     role: "Venture Capital",
+    image: "/phase-capital.webp",
   },
   {
     number: "04",
     phase: "Scale",
     action: "App Store optimization, growth loops, and follow-on fundraising.",
     role: "Growth Hacking",
+    image: "/phase-scale.webp",
   },
 ];
 
@@ -62,12 +66,17 @@ export default function Home() {
           href="mailto:manol@balkanbit.app"
           className="text-sm px-4 py-2 rounded-lg bg-[#4f8fff]/10 border border-[#4f8fff]/30 text-[#4f8fff] hover:bg-[#4f8fff]/20 transition-all"
         >
-          Request LP Deck
+          Request Limited Partner Deck
         </a>
       </nav>
 
       {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 pt-20">
+      <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 pt-20 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.webp')" }}
+        />
+        <div className="absolute inset-0 bg-[#080b12]/80" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -106,7 +115,7 @@ export default function Home() {
               href="mailto:manol@balkanbit.app"
               className="px-8 py-3.5 rounded-xl bg-[#4f8fff] hover:bg-[#3d74f0] text-white font-semibold transition-all shadow-lg shadow-[#4f8fff]/25"
             >
-              Request LP Deck
+              Request Limited Partner Deck
             </a>
             <a
               href="#portfolio"
@@ -140,16 +149,26 @@ export default function Home() {
           {phases.map((p) => (
             <div
               key={p.number}
-              className="relative p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#4f8fff]/40 hover:bg-white/[0.05] transition-all group"
+              className="relative rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#4f8fff]/40 hover:bg-white/[0.05] transition-all group overflow-hidden"
             >
-              <div className="text-5xl font-mono font-bold text-[#4f8fff]/20 group-hover:text-[#4f8fff]/40 transition-colors mb-4">
-                {p.number}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={`${p.phase} phase`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080b12] via-[#080b12]/40 to-transparent" />
+                <div className="absolute top-3 left-4 text-4xl font-mono font-bold text-[#4f8fff]/20 group-hover:text-[#4f8fff]/40 transition-colors">
+                  {p.number}
+                </div>
               </div>
-              <div className="text-sm font-mono text-[#4f8fff] mb-1">{p.phase}</div>
-              <p className="text-[#8ca0c8] text-sm mb-4">{p.action}</p>
-              <span className="inline-block text-xs px-2.5 py-1 rounded-md bg-[#4f8fff]/10 border border-[#4f8fff]/20 text-[#4f8fff] font-mono">
-                {p.role}
-              </span>
+              <div className="p-6 pt-3">
+                <div className="text-sm font-mono text-[#4f8fff] mb-1">{p.phase}</div>
+                <p className="text-[#8ca0c8] text-sm mb-4">{p.action}</p>
+                <span className="inline-block text-xs px-2.5 py-1 rounded-md bg-[#4f8fff]/10 border border-[#4f8fff]/20 text-[#4f8fff] font-mono">
+                  {p.role}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -165,7 +184,7 @@ export default function Home() {
             <h2 className="mt-3 text-3xl md:text-5xl font-bold">Proof the Model Works</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
             <div className="relative p-8 rounded-3xl bg-gradient-to-br from-[#1a1040] via-[#0f1a30] to-[#080b12] border border-white/10 overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#a78bfa]/10 rounded-full blur-[80px] pointer-events-none" />
               <div className="relative z-10">
@@ -177,9 +196,9 @@ export default function Home() {
                   ZeroShots
                   <span className="text-[#a78bfa]">.app</span>
                 </h3>
-                <p className="text-sm text-[#a78bfa] font-mono mb-6">AI-Powered Professional Photography</p>
+                <p className="text-sm text-[#a78bfa] font-mono mb-6">Tinder for Your Screenshots</p>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-6">
                   <div className="flex gap-3">
                     <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-sm flex-shrink-0 mt-0.5">
                       ✕
@@ -187,7 +206,7 @@ export default function Home() {
                     <div>
                       <p className="text-sm font-semibold mb-0.5">The Problem</p>
                       <p className="text-sm text-[#8ca0c8]">
-                        Professional headshots cost hundreds and take weeks to schedule.
+                        Hundreds of screenshots piling up. You&apos;ll never look at most of them again — but deleting them one by one is tedious.
                       </p>
                     </div>
                   </div>
@@ -198,13 +217,23 @@ export default function Home() {
                     <div>
                       <p className="text-sm font-semibold mb-0.5">The Solution</p>
                       <p className="text-sm text-[#8ca0c8]">
-                        Upload a few selfies. Get studio-quality AI headshots in minutes.
-                        Built on Stable Diffusion with custom LoRA training — an iOS-first
-                        experience designed by the studio, engineered by the studio, funded by the
-                        studio.
+                        Swipe right to keep, left to delete. ZeroShots turns your screenshot backlog into a fast, satisfying swipe session — and tells you exactly how much space you freed. Delete 200 screenshots. Five minutes. Done.
                       </p>
                     </div>
                   </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  <img
+                    src="https://www.zeroshots.app/images/stack.png"
+                    alt="ZeroShots screenshot stack"
+                    className="w-full rounded-xl border border-white/10"
+                  />
+                  <img
+                    src="https://www.zeroshots.app/images/recap.png"
+                    alt="ZeroShots recap screen"
+                    className="w-full rounded-xl border border-white/10"
+                  />
                 </div>
 
                 <a
@@ -220,9 +249,9 @@ export default function Home() {
 
             <div className="space-y-4">
               {[
-                { label: "Platform", value: "iOS-first (iPhone & iPad)" },
-                { label: "AI Stack", value: "Stable Diffusion + Custom LoRA" },
-                { label: "Category", value: "Photography / AI Tools" },
+                { label: "Platform", value: "iOS-first (iPhone)" },
+                { label: "Category", value: "Utilities / Productivity" },
+                { label: "Core Mechanic", value: "Swipe to delete screenshots" },
                 { label: "Studio Role", value: "Design · Engineering · Capital" },
               ].map((item) => (
                 <div
@@ -240,7 +269,7 @@ export default function Home() {
                   Product #2 is in early-stage development. Back the studio now and get in
                   before the next launch.{" "}
                   <a href="mailto:manol@balkanbit.app" className="text-[#4f8fff] underline underline-offset-2">
-                    Request LP Deck.
+                    Request Limited Partner Deck.
                   </a>
                 </p>
               </div>
@@ -250,7 +279,13 @@ export default function Home() {
       </section>
 
       {/* Investors */}
-      <section id="investors" className="py-24 px-6 md:px-12 max-w-6xl mx-auto">
+      <section id="investors" className="relative py-24 px-6 md:px-12 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/investors-bg.webp')" }}
+        />
+        <div className="absolute inset-0 bg-[#080b12]/85" />
+        <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase">
             For Investors
@@ -287,9 +322,10 @@ export default function Home() {
               href="mailto:manol@balkanbit.app"
               className="inline-block px-8 py-3.5 rounded-xl bg-[#4f8fff] hover:bg-[#3d74f0] text-white font-semibold transition-all shadow-lg shadow-[#4f8fff]/25"
             >
-              Request LP Deck
+              Request Limited Partner Deck
             </a>
           </div>
+        </div>
         </div>
       </section>
 
