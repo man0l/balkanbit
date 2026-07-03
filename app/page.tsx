@@ -2,29 +2,29 @@ const phases = [
   {
     number: "01",
     phase: "Ideation",
-    action: "Scouting market gaps in AI and mobile — validating before building.",
-    role: "Market Research",
+    action: "Mining TikTok for trending apps and underserved niches — we validate demand with real user behavior before writing a line of code.",
+    role: "TikTok Research",
     image: "/phase-ideation.webp",
   },
   {
     number: "02",
     phase: "Engineering",
-    action: "Rapid prototyping on a shared core — MVPs in weeks, not months.",
-    role: "Full-stack Dev",
+    action: "One React Native + Expo codebase shipping to both iOS and Android — cutting dev time in half while native apps take months.",
+    role: "React Native & Expo",
     image: "/phase-engineering.webp",
   },
   {
     number: "03",
     phase: "Capital",
-    action: "Studio-funded seed capital deployed at the right inflection point.",
-    role: "Venture Capital",
+    action: "Studio funds deploy directly into Meta & TikTok ad campaigns — systematic testing to find product-market fit with real paying users.",
+    role: "Paid Acquisition",
     image: "/phase-capital.webp",
   },
   {
     number: "04",
     phase: "Scale",
-    action: "App Store optimization, growth loops, and follow-on fundraising.",
-    role: "Growth Hacking",
+    action: "Winning campaigns get more capital. Losing ones get killed. A data-driven flywheel that compounds spend behind what already works.",
+    role: "Scale What Works",
     image: "/phase-scale.webp",
   },
 ];
@@ -140,8 +140,7 @@ export default function Home() {
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold">Build · Fund · Scale</h2>
           <p className="mt-4 text-[#8ca0c8] max-w-xl mx-auto">
-            A repeatable pipeline: spot a gap, build the MVP on shared infrastructure, deploy
-            studio capital, then scale or spin out. Every product follows the same machine.
+            TikTok signals the gap. React Native ships the app. Studio capital buys the users. Scale what sticks. Every product follows the same machine.
           </p>
         </div>
 
@@ -485,6 +484,18 @@ export default function Home() {
                     <span className="text-[#4f8fff]">Email:</span>{" "}
                     <a href="mailto:manol@balkanbit.app" className="hover:text-white transition-colors">
                       manol@balkanbit.app
+                    </a>
+                  </p>
+                </div>
+                <div className="pt-2 space-y-1">
+                  <p>
+                    <a href="/looxmaxxing/privacy-policy" className="hover:text-white transition-colors">
+                      LooxMaxxing Privacy Policy
+                    </a>
+                  </p>
+                  <p>
+                    <a href="/looxmaxxing/terms" className="hover:text-white transition-colors">
+                      LooxMaxxing Terms of Use
                     </a>
                   </p>
                 </div>
