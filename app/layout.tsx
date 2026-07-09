@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://balkanbit.app"),
   openGraph: {
     title: "BalkanBit — Venture Building Studio",
-    description: "Ideas don't ship. Builders do. Back the studio that builds, funds, and scales mobile products from Sofia to the world.",
+    description: "Ideas don't ship. Builders do. BalkanBit is a venture building studio — shipping mobile products from Sofia to the world.",
     url: "https://balkanbit.app",
     siteName: "BalkanBit",
     locale: "en_US",

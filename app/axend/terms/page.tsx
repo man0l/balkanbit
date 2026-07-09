@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "LooxMaxxing — Terms of Use | BalkanBit",
+  title: "Axend — Terms of Use | BalkanBit",
   description:
-    "Terms of use for the LooxMaxxing mobile application, including subscription and auto-renewal terms.",
+    "Terms of use for the Axend mobile application, including subscription and auto-renewal terms.",
 };
 
 function Section({
@@ -24,7 +24,7 @@ function Section({
   );
 }
 
-export default function LooxMaxxingTerms() {
+export default function AxendTerms() {
   return (
     <main className="min-h-screen">
       <header className="border-b border-white/[0.07]">
@@ -40,13 +40,13 @@ export default function LooxMaxxingTerms() {
 
       <article className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase mb-4">
-          LooxMaxxing
+          Axend
         </p>
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
           Terms of Use
         </h1>
         <p className="text-sm text-[#8ca0c8] mb-12">
-          Effective date: July 3, 2026 · Applies to the LooxMaxxing mobile
+          Effective date: July 3, 2026 · Applies to the Axend mobile
           application for iOS and Android
         </p>
 
@@ -54,7 +54,7 @@ export default function LooxMaxxingTerms() {
           <p>
             These Terms of Use are an agreement between you and
             &ldquo;Pazaruvai Umno&rdquo; EOOD, UIC 206373314, Sofia, Bulgaria
-            (&ldquo;we&rdquo;, &ldquo;us&rdquo;). By using the LooxMaxxing
+            (&ldquo;we&rdquo;, &ldquo;us&rdquo;). By using the Axend
             application (&ldquo;the App&rdquo;) you accept these terms. On
             iOS, Apple&rsquo;s standard Licensed Application End User License
             Agreement also applies to the extent it is not in conflict with
@@ -117,7 +117,7 @@ export default function LooxMaxxingTerms() {
           <p>
             How we handle your photos and other data is described in the{" "}
             <Link
-              href="/looxmaxxing/privacy-policy"
+              href="/axend/privacy-policy"
               className="text-[#4f8fff] hover:underline"
             >
               Privacy Policy
@@ -141,10 +141,10 @@ export default function LooxMaxxingTerms() {
             the App. Continued use after changes take effect constitutes
             acceptance. Contact:{" "}
             <a
-              href="mailto:privacy@balkanbit.app"
+              href="mailto:manol@balkanbit.app"
               className="text-[#4f8fff] hover:underline"
             >
-              privacy@balkanbit.app
+              manol@balkanbit.app
             </a>
             . These terms are governed by the law of the Republic of Bulgaria.
           </p>
@@ -155,7 +155,7 @@ export default function LooxMaxxingTerms() {
             &ldquo;Pazaruvai Umno&rdquo; EOOD · UIC 206373314 · Sofia,
             Bulgaria ·{" "}
             <Link
-              href="/looxmaxxing/privacy-policy"
+              href="/axend/privacy-policy"
               className="text-[#4f8fff] hover:underline"
             >
               Privacy Policy

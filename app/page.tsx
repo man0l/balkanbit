@@ -489,13 +489,13 @@ export default function Home() {
                 </div>
                 <div className="pt-2 space-y-1">
                   <p>
-                    <a href="/looxmaxxing/privacy-policy" className="hover:text-white transition-colors">
-                      LooxMaxxing Privacy Policy
+                    <a href="/axend/privacy-policy" className="hover:text-white transition-colors">
+                      Axend Privacy Policy
                     </a>
                   </p>
                   <p>
-                    <a href="/looxmaxxing/terms" className="hover:text-white transition-colors">
-                      LooxMaxxing Terms of Use
+                    <a href="/axend/terms" className="hover:text-white transition-colors">
+                      Axend Terms of Use
                     </a>
                   </p>
                 </div>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "LooxMaxxing — Privacy Policy | BalkanBit",
+  title: "Axend — Privacy Policy | BalkanBit",
   description:
-    "Privacy policy for the LooxMaxxing mobile application: what data we collect, how photos are processed and deleted, and your rights under the GDPR.",
+    "Privacy policy for the Axend mobile application: what data we collect, how photos are processed and deleted, and your rights under the GDPR.",
 };
 
 function Section({
@@ -24,7 +24,7 @@ function Section({
   );
 }
 
-export default function LooxMaxxingPrivacyPolicy() {
+export default function AxendPrivacyPolicy() {
   return (
     <main className="min-h-screen">
       <header className="border-b border-white/[0.07]">
@@ -40,19 +40,19 @@ export default function LooxMaxxingPrivacyPolicy() {
 
       <article className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase mb-4">
-          LooxMaxxing
+          Axend
         </p>
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
           Privacy Policy
         </h1>
         <p className="text-sm text-[#8ca0c8] mb-12">
-          Effective date: July 3, 2026 · Applies to the LooxMaxxing mobile
+          Effective date: July 3, 2026 · Applies to the Axend mobile
           application for iOS and Android (com.balkanbit.looxmaxxing)
         </p>
 
         <Section title="1. Who we are">
           <p>
-            The LooxMaxxing application (&ldquo;the App&rdquo;) is published by
+            The Axend application (&ldquo;the App&rdquo;) is published by
             &ldquo;Pazaruvai Umno&rdquo; EOOD (&ldquo;ПАЗАРУВАЙ УМНО&rdquo;
             ЕООД), a company registered in the Republic of Bulgaria with
             Unified Identification Code (UIC/ЕИК) 206373314, with registered
@@ -66,10 +66,10 @@ export default function LooxMaxxingPrivacyPolicy() {
           <p>
             Questions about this policy or your data:{" "}
             <a
-              href="mailto:privacy@balkanbit.app"
+              href="mailto:manol@balkanbit.app"
               className="text-[#4f8fff] hover:underline"
             >
-              privacy@balkanbit.app
+              manol@balkanbit.app
             </a>
             .
           </p>
@@ -77,7 +77,7 @@ export default function LooxMaxxingPrivacyPolicy() {
 
         <Section title="2. What the App does with your photos">
           <p>
-            LooxMaxxing generates appearance trait scores from two photos of
+            Axend generates appearance trait scores from two photos of
             your face (a front photo and a profile photo) that you capture
             with your camera or select from your photo library. Because your
             face is sensitive data, we designed the App to handle photos as
@@ -249,10 +249,10 @@ export default function LooxMaxxingPrivacyPolicy() {
             anything else — including deletion of purchase records associated
             with your anonymous identifier — email{" "}
             <a
-              href="mailto:privacy@balkanbit.app"
+              href="mailto:manol@balkanbit.app"
               className="text-[#4f8fff] hover:underline"
             >
-              privacy@balkanbit.app
+              manol@balkanbit.app
             </a>{" "}
             and we will respond within one month.
           </p>
@@ -323,7 +323,7 @@ export default function LooxMaxxingPrivacyPolicy() {
             &ldquo;Pazaruvai Umno&rdquo; EOOD · UIC 206373314 · Sofia,
             Bulgaria ·{" "}
             <Link
-              href="/looxmaxxing/terms"
+              href="/axend/terms"
               className="text-[#4f8fff] hover:underline"
             >
               Terms of Use
