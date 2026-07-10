@@ -1,29 +1,12 @@
-/* Outlined hexagon badge with an icon inside — Mercury's hero award-badge pattern */
-function HexBadge({
-  children,
-  size = 56,
-}: {
-  children?: React.ReactNode;
-  size?: number;
-}) {
-  return (
-    <div className="relative flex items-center justify-center" style={{ width: size, height: size }}>
-      <svg viewBox="0 0 56 64" className="absolute inset-0 w-full h-full" fill="none">
-        <path
-          d="M28 2 L52 16 V48 L28 62 L4 48 V16 Z"
-          stroke="rgba(250,251,251,0.7)"
-          strokeWidth="1.5"
-        />
-      </svg>
-      <span className="relative text-text-1">{children}</span>
-    </div>
-  );
-}
-
-/* Small rotated-square diamond — Mercury's particle/bullet mark */
-function Diamond({ className = "" }: { className?: string }) {
-  return <span className={`inline-block w-[7px] h-[7px] rotate-45 ${className}`} />;
-}
+import {
+  Button,
+  Card,
+  Chip,
+  Diamond,
+  HexBadge,
+  SectionHeader,
+  StatCounter,
+} from "@/components";
 
 const phases = [
   {
@@ -147,12 +130,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-6 justify-center animate-fade-in-up-delay-2">
-            <a
-              href="mailto:manol@balkanbit.app"
-              className="px-9 py-3.5 rounded-full bg-accent hover:bg-accent-hover text-white text-base font-semibold transition-colors"
-            >
-              Join the Journey — Invest
-            </a>
+            <Button href="mailto:manol@balkanbit.app">Join the Journey — Invest</Button>
             <a
               href="#portfolio"
               className="text-[13px] font-semibold uppercase tracking-[0.07em] text-text-2 hover:text-accent transition-colors"
@@ -254,23 +232,23 @@ export default function Home() {
         <div className="sparkle left-[6%] top-[18%]" />
         <div className="sparkle right-[8%] top-[40%]" />
         <div className="relative max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[15px] font-semibold uppercase tracking-[0.05em] text-text-4">
-              How BalkanBit Operates
-            </span>
-            <h2 className="mt-4 text-[34px] md:text-[56px] font-bold leading-[1.16]">
-              Weeks to market. <span className="text-accent">Not quarters.</span>
-            </h2>
-            <p className="mt-6 text-text-2 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              TikTok finds the gap. React Native ships the app. Studio capital buys the users.
-            </p>
-          </div>
+          <SectionHeader
+            className="mb-16"
+            eyebrow="How BalkanBit Operates"
+            title={
+              <>
+                Weeks to market. <span className="text-accent">Not quarters.</span>
+              </>
+            }
+            lead="TikTok finds the gap. React Native ships the app. Studio capital buys the users."
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {phases.map((p, i) => (
-              <div
+              <Card
                 key={p.phase}
-                className="relative rounded-lg bg-surface hover:bg-surface-2 transition-colors group overflow-hidden"
+                hover
+                className="relative group overflow-hidden"
               >
                 <div className="p-6 pb-4 flex items-start justify-between">
                   <div>
@@ -286,7 +264,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
@@ -294,14 +272,15 @@ export default function Home() {
 
       {/* Featured projects — full-bleed vibrant mosaic, Mercury style */}
       <section id="portfolio" className="py-24 md:py-[120px]">
-        <div className="text-center mb-16 px-6">
-          <span className="text-[15px] font-semibold uppercase tracking-[0.05em] text-text-4">
-            Portfolio
-          </span>
-          <h2 className="mt-4 text-[34px] md:text-[56px] font-bold leading-[1.16]">
-            <span className="text-accent">Proof,</span> not promises
-          </h2>
-        </div>
+        <SectionHeader
+          className="mb-16 px-6"
+          eyebrow="Portfolio"
+          title={
+            <>
+              <span className="text-accent">Proof,</span> not promises
+            </>
+          }
+        />
 
         <div className="grid md:grid-cols-2">
           {/* ZeroShots tile */}
@@ -382,15 +361,12 @@ export default function Home() {
             { value: "2", suffix: "×", label: "Faster shipping, one codebase" },
             { value: "100", suffix: "%", label: "Of capital funds product & ads, not payroll" },
           ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-5xl md:text-6xl font-extrabold leading-none">
-                {s.value}
-                <span className="text-accent text-3xl md:text-4xl align-super">{s.suffix || "＋"}</span>
-              </div>
-              <div className="mt-3 text-xs font-semibold uppercase tracking-[0.07em] text-text-3 max-w-[180px]">
-                {s.label}
-              </div>
-            </div>
+            <StatCounter
+              key={s.label}
+              value={s.value}
+              suffix={s.suffix || undefined}
+              label={s.label}
+            />
           ))}
         </div>
       </section>
@@ -403,27 +379,25 @@ export default function Home() {
         <div className="sparkle left-[10%] bottom-[18%]" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[15px] font-semibold uppercase tracking-[0.05em] text-text-4">
-              For Investors
-            </span>
-            <h2 className="mt-4 text-[34px] md:text-[56px] font-bold leading-[1.16]">
-              De-risked <span className="text-accent">before your check clears</span>
-            </h2>
-          </div>
+          <SectionHeader
+            className="mb-16"
+            eyebrow="For Investors"
+            title={
+              <>
+                De-risked <span className="text-accent">before your check clears</span>
+              </>
+            }
+          />
 
           <div className="grid md:grid-cols-3 gap-3 mb-16">
             {advantages.map((adv) => (
-              <div
-                key={adv.title}
-                className="p-8 rounded-lg bg-surface hover:bg-surface-2 transition-colors"
-              >
+              <Card key={adv.title} hover className="p-8">
                 <div className="mb-6 text-accent">
                   <HexBadge size={52}>{adv.icon}</HexBadge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{adv.title}</h3>
                 <p className="text-sm text-text-3 leading-relaxed">{adv.body}</p>
-              </div>
+              </Card>
             ))}
           </div>
 
@@ -434,12 +408,7 @@ export default function Home() {
             <p className="text-text-2 leading-relaxed mb-8 max-w-md mx-auto">
               Not a bet on one app — a stake in everything the studio ships.
             </p>
-            <a
-              href="mailto:manol@balkanbit.app"
-              className="inline-block px-9 py-3.5 rounded-full bg-accent hover:bg-accent-hover text-white text-base font-semibold transition-colors"
-            >
-              Request Limited Partner Deck
-            </a>
+            <Button href="mailto:manol@balkanbit.app">Request Limited Partner Deck</Button>
           </div>
         </div>
       </section>
@@ -447,14 +416,15 @@ export default function Home() {
       {/* Founder */}
       <section id="founder" className="py-24 md:py-[120px] px-6 md:px-12 bg-bg-alt">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[15px] font-semibold uppercase tracking-[0.05em] text-text-4">
-              The Founder
-            </span>
-            <h2 className="mt-4 text-[34px] md:text-[56px] font-bold leading-[1.16]">
-              One builder. <span className="text-accent">Full stack.</span>
-            </h2>
-          </div>
+          <SectionHeader
+            className="mb-16"
+            eyebrow="The Founder"
+            title={
+              <>
+                One builder. <span className="text-accent">Full stack.</span>
+              </>
+            }
+          />
 
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start">
             {/* Avatar + name */}
@@ -510,12 +480,9 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-2 pt-2">
                 {["Angel-Backed Founder", "Full-Stack Engineer", "Fundraising Operator", "AI & Mobile"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] font-semibold uppercase tracking-[0.07em] px-3.5 py-1.5 rounded-full bg-surface text-text-2"
-                  >
+                  <Chip key={tag} tone="neutral">
                     {tag}
-                  </span>
+                  </Chip>
                 ))}
               </div>
             </div>

@@ -1,0 +1,20 @@
+{
+  "projectId": "297b5f69-3b84-4a97-adc5-6eb1f7fc4dac",
+  "shape": "package",
+  "pkg": "balkanbit",
+  "globalName": "BalkanBit",
+  "srcDir": "components",
+  "tsconfig": "tsconfig.json",
+  "buildCmd": "npm run build && node .design-sync/prepare-css.mjs",
+  "cssEntry": ".design-sync/.cache/app.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "componentSrcMap": {
+    "Button": "components/Button.tsx",
+    "Card": "components/Card.tsx",
+    "Chip": "components/Chip.tsx",
+    "Diamond": "components/Diamond.tsx",
+    "HexBadge": "components/HexBadge.tsx",
+    "SectionHeader": "components/SectionHeader.tsx",
+    "StatCounter": "components/StatCounter.tsx"
+  }
+}
