@@ -4,7 +4,7 @@
 - `cfg.buildCmd` = `npm run build && node .design-sync/prepare-css.mjs`. The prep script copies the hashed Turbopack stylesheet (`.next/static/chunks/*.css`, largest wins) to `.design-sync/.cache/app.css` (= `cfg.cssEntry`) and rewrites `url(../media/*.woff2)` → `./fonts/*`, copying the woff2s. Turbopack emits `../media/` urls, not `/_next/static/media/` — the script handles both.
 - Tailwind v4 auto-scans `.design-sync/previews/*.tsx`, so preview-only classes DO compile into the app stylesheet — but only after a full `npm run build`. **Always run the full buildCmd (not just the converter) after editing previews.**
 - Dark-first system: preview cards render on a light page, so every preview export wraps in a local `Dark` helper (`bg-bg p-8`). Without it, `text-text-1` content is white-on-white invisible (cost one debugging cycle).
-- Dead utility `.font-\[family-name\:var\(--font-archivo\)\]` compiles in because Tailwind scans `design_handoff/README.md` (obsolete handoff folder, untracked). Harmless; deleting `design_handoff/` clears it.
+- (resolved 2026-07-10) A dead `.font-\[family-name\:var\(--font-archivo\)\]` utility used to compile in because Tailwind scanned the obsolete `design_handoff/` folder; that folder is deleted, so the utility drops out on the next full build. Lesson: Tailwind v4 scans every non-gitignored text file — stray docs can mint utilities.
 - Playwright: cached chromium-1228 matched latest `playwright-core` at sync time (July 2026).
 - `mx-auto` was added to StatCounter's label during preview grading (label was left-offset outside flex parents) — a real component fix, shipped to the site too.
 
