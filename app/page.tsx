@@ -583,6 +583,16 @@ export default function Home() {
                       Axend Terms of Use
                     </a>
                   </p>
+                  <p>
+                    <a href="/mathly/privacy-policy" className="hover:text-accent transition-colors">
+                      Mathly Privacy Policy
+                    </a>
+                  </p>
+                  <p>
+                    <a href="/mathly/terms" className="hover:text-accent transition-colors">
+                      Mathly Terms of Use
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
