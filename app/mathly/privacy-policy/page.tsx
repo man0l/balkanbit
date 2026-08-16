@@ -88,11 +88,13 @@ export default function MathlyPrivacyPolicy() {
             </li>
             <li>
               Our service passes the image to an AI model to read and solve the
-              problem, and{" "}
+              problem.{" "}
               <strong className="text-white">
-                does not retain the photo after the request completes
+                We keep no copy of the photo once your solution is returned
               </strong>
-              . Only the resulting text solution is returned to your device.
+              . Our AI provider holds it briefly for abuse monitoring — up to 30
+              days — and then deletes it. Only the resulting text solution comes
+              back to your device.
             </li>
             <li>
               The solution and the problem are then stored{" "}
@@ -191,8 +193,10 @@ export default function MathlyPrivacyPolicy() {
           <ul className="list-disc pl-6 space-y-2">
             <li>
               <strong className="text-white">AI inference provider</strong> —
-              processes the problem photo or text transiently to produce a
-              solution; content is not retained or used for model training.
+              processes the problem photo or text to produce a solution. Your
+              content is <strong className="text-white">not</strong> used to
+              train their models. It is retained only for abuse monitoring, for
+              up to 30 days, and then deleted.
             </li>
             <li>
               <strong className="text-white">Cloud hosting provider</strong> —
@@ -220,9 +224,10 @@ export default function MathlyPrivacyPolicy() {
         <Section title="6. Retention">
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">Photos and problems on our
-              servers</strong> — not retained after the request that produced
-              your solution completes.
+              <strong className="text-white">Photos and problems</strong> — we
+              keep no copy once your solution is returned. Our AI provider
+              retains them for abuse monitoring for up to 30 days, then deletes
+              them.
             </li>
             <li>
               <strong className="text-white">Solutions, chats, and answers on
