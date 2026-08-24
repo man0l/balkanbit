@@ -46,7 +46,7 @@ export default function MathlyPrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="text-sm text-[#8ca0c8] mb-12">
-          Effective date: August 15, 2026 · Applies to the Mathly mobile
+          Effective date: August 24, 2026 · Applies to the Mathly mobile
           application for iOS and Android (com.balkanbit.mathly)
         </p>
 
@@ -87,14 +87,16 @@ export default function MathlyPrivacyPolicy() {
               service only when you explicitly scan a problem.
             </li>
             <li>
-              Our service passes the image to an AI model to read and solve the
-              problem.{" "}
+              Our service passes the image to our AI provider,{" "}
+              <strong className="text-white">OpenAI</strong>, which reads and
+              solves the problem — the same third-party AI service disclosed
+              inside the App before your first submission.{" "}
               <strong className="text-white">
                 We keep no copy of the photo once your solution is returned
               </strong>
-              . Our AI provider holds it briefly for abuse monitoring — up to 30
-              days — and then deletes it. Only the resulting text solution comes
-              back to your device.
+              . OpenAI holds it briefly for abuse monitoring — up to 30 days —
+              and then deletes it. Only the resulting text solution comes back
+              to your device.
             </li>
             <li>
               The solution and the problem are then stored{" "}
@@ -192,11 +194,11 @@ export default function MathlyPrivacyPolicy() {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">AI inference provider</strong> —
-              processes the problem photo or text to produce a solution. Your
-              content is <strong className="text-white">not</strong> used to
-              train their models. It is retained only for abuse monitoring, for
-              up to 30 days, and then deleted.
+              <strong className="text-white">OpenAI</strong> — our AI inference
+              provider: processes the problem photo or text to produce a
+              solution. Your content is <strong className="text-white">
+              not</strong> used to train their models. It is retained only for
+              abuse monitoring, for up to 30 days, and then deleted.
             </li>
             <li>
               <strong className="text-white">Cloud hosting provider</strong> —
