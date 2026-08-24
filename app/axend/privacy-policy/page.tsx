@@ -46,7 +46,7 @@ export default function AxendPrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="text-sm text-[#8ca0c8] mb-12">
-          Effective date: July 3, 2026 · Applies to the Axend mobile
+          Effective date: August 24, 2026 · Applies to the Axend mobile
           application for iOS and Android (com.balkanbit.looxmaxxing)
         </p>
 
@@ -95,8 +95,9 @@ export default function AxendPrivacyPolicy() {
               secure cloud storage.
             </li>
             <li>
-              Our scoring service analyzes the photos with an AI model to
-              produce your trait scores, and{" "}
+              Our scoring service sends the photos to{" "}
+              <strong className="text-white">OpenAI</strong> to produce your
+              trait scores, and{" "}
               <strong className="text-white">
                 deletes both photos from our servers immediately after scoring
               </strong>
@@ -104,8 +105,9 @@ export default function AxendPrivacyPolicy() {
             </li>
             <li>
               If you use the avatar feature, your reference photo is uploaded
-              the same way to generate a stylized image; the generated image
-              is served from a temporary link that expires automatically.
+              the same way and sent to OpenAI to generate a stylized image;
+              the generated image is served from a temporary link that expires
+              automatically.
             </li>
             <li>
               Your photos are <strong className="text-white">never</strong>{" "}
@@ -156,10 +158,13 @@ export default function AxendPrivacyPolicy() {
             <li>
               <strong className="text-white">Consent (Art. 6(1)(a) and Art.
               9(2)(a) GDPR)</strong> — for capturing and processing your face
-              photos. You grant camera and photo library access through the
+              photos, and for sending those photos to OpenAI. You confirm this
+              on the in-app screen that names OpenAI before any photo is
+              uploaded. You grant camera and photo library access through the
               operating system prompts, and each scan is started only by your
-              explicit action. You may withdraw consent at any time by
-              deleting your photos and not running further scans.
+              explicit action. You may withdraw consent at any time in{" "}
+              <em>Profile → Privacy</em>, by deleting your photos, or by not
+              running further scans.
             </li>
             <li>
               <strong className="text-white">Performance of a contract (Art.
@@ -196,9 +201,12 @@ export default function AxendPrivacyPolicy() {
               photo storage described in Section 2.
             </li>
             <li>
-              <strong className="text-white">AI inference provider</strong> —
-              processes photos transiently to compute trait scores; photos are
-              not retained or used for model training.
+              <strong className="text-white">OpenAI, Inc.</strong> — AI
+              inference for trait scoring and optional avatar previews. Face
+              photos are processed transiently to compute the result; they are
+              not retained by OpenAI or used for model training. OpenAI is
+              bound by a data processing agreement and provides the same or
+              equal protection of this data.
             </li>
             <li>
               <strong className="text-white">Apple App Store / Google
