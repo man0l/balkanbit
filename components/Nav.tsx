@@ -24,7 +24,7 @@ export function Nav({
         className="max-w-[1200px] mx-auto bg-surface-1/95 backdrop-blur-md border border-border rounded-[28px] md:rounded-full pl-5 pr-2 py-2"
       >
         <div className="flex items-center justify-between gap-4">
-          <Logo href="#" />
+          <Logo href="/" />
 
           <ul className="hidden md:flex items-center gap-1 text-small font-semibold">
             {links.map((l) => (

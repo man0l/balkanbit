@@ -3,11 +3,13 @@ import {
   Card,
   Chip,
   HexBadge,
-  Logo,
-  Nav,
+  PortfolioCard,
   SectionHeader,
+  SiteFooter,
+  SiteNav,
   StatCounter,
 } from "@/components";
+import { projects } from "@/lib/portfolio";
 
 const phases = [
   {
@@ -48,7 +50,7 @@ const advantages = [
       </svg>
     ),
     title: "The model works",
-    body: "ZeroShots.app is live on the App Store — concept to shipped product, end to end.",
+    body: "Axend is live on the App Store and slashloop is live on the web — concept to shipped product, end to end.",
   },
   {
     icon: (
@@ -80,21 +82,6 @@ const advantages = [
    to hide every .space-motif element on the page. */
 const SPACE_MOTIFS = true;
 
-const navLinks = [
-  { href: "#model", label: "Model" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#investors", label: "Investors" },
-  { href: "#founder", label: "Founder" },
-  { href: "#contact", label: "Contact" },
-];
-
-const mailIcon = (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
-    <rect x="2" y="4" width="20" height="16" rx="3" />
-    <path d="m2 7 10 6 10-6" />
-  </svg>
-);
-
 export default function Home() {
   return (
     <main
@@ -102,18 +89,7 @@ export default function Home() {
       data-motifs={SPACE_MOTIFS ? "on" : "off"}
       className="min-h-screen bg-bg text-text-1 overflow-x-hidden"
     >
-      <Nav
-        links={navLinks}
-        cta={{
-          href: "mailto:manol@balkanbit.app",
-          label: (
-            <>
-              {mailIcon}
-              Request LP Deck
-            </>
-          ),
-        }}
-      />
+      <SiteNav />
 
       {/* Hero — starfield + planet horizon */}
       <section className="relative flex flex-col items-center min-h-screen text-center px-6 pt-40 pb-0 overflow-hidden">
@@ -279,82 +255,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured projects — full-bleed vibrant mosaic, Mercury style */}
-      <section id="portfolio" className="py-24 md:py-[120px]">
-        <SectionHeader
-          className="mb-16 px-6"
-          eyebrow="Portfolio"
-          title={
-            <>
-              <span className="text-accent">Proof,</span> not promises
-            </>
-          }
-        />
+      {/* Portfolio — products the studio builds and runs */}
+      <section id="portfolio" className="py-24 md:py-[120px] px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            className="mb-16"
+            eyebrow="Portfolio"
+            title={
+              <>
+                <span className="text-accent">Proof,</span> not promises
+              </>
+            }
+            lead="Products we build and run ourselves: live, in beta and about to launch."
+          />
 
-        <div className="grid md:grid-cols-2">
-          {/* ZeroShots tile */}
-          <a
-            href="https://zeroshots.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative block aspect-[4/5] md:aspect-[5/6] overflow-hidden group"
-          >
-            <img
-              src="/gen/zeroshots-tile.webp"
-              alt="ZeroShots app"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/30" />
-            <div className="absolute top-0 left-0 right-0 p-8 md:p-10 flex items-start justify-between">
-              <div>
-                <h3 className="text-h3 md:text-h2 font-bold text-white">ZeroShots</h3>
-                <p className="text-white/80 text-small mt-1">Tinder for your screenshots</p>
-              </div>
-              <span className="inline-flex items-center gap-2 text-label font-semibold uppercase tracking-[0.08em] text-white bg-black/30 backdrop-blur-sm px-3.5 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-positive glow-dot" />
-                Live
-              </span>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 flex items-end justify-between">
-              <p className="text-white/90 text-small md:text-body max-w-[260px] font-medium leading-snug">
-                200 screenshots deleted in five minutes. Swipe. Done.
-              </p>
-              <span className="inline-flex px-6 py-2.5 rounded-full bg-white text-black text-small font-semibold group-hover:bg-accent-fill group-hover:text-white transition-colors whitespace-nowrap">
-                App Store ↗
-              </span>
-            </div>
-          </a>
-
-          {/* Product #2 teaser tile */}
-          <a
-            href="mailto:manol@balkanbit.app"
-            className="relative block aspect-[4/5] md:aspect-[5/6] overflow-hidden group"
-          >
-            <img
-              src="/gen/pipeline-tile.webp"
-              alt="Product #2 — in development"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/30" />
-            <div className="absolute top-0 left-0 right-0 p-8 md:p-10 flex items-start justify-between">
-              <div>
-                <h3 className="text-h3 md:text-h2 font-bold text-white">Product #2</h3>
-                <p className="text-white/80 text-small mt-1">In development</p>
-              </div>
-              <span className="inline-flex items-center gap-2 text-label font-semibold uppercase tracking-[0.08em] text-white bg-black/30 backdrop-blur-sm px-3.5 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-warning glow-dot" />
-                Pipeline
-              </span>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 flex items-end justify-between">
-              <p className="text-white/90 text-small md:text-body max-w-[260px] font-medium leading-snug">
-                Back the studio now — get in before the next launch.
-              </p>
-              <span className="inline-flex px-6 py-2.5 rounded-full bg-accent-fill text-white text-small font-semibold group-hover:bg-accent-fill-hover transition-colors whitespace-nowrap">
-                Get early access
-              </span>
-            </div>
-          </a>
+          <div className="grid md:grid-cols-2 gap-3">
+            {projects.map((p) => (
+              <PortfolioCard key={p.slug} project={p} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -365,7 +284,7 @@ export default function Home() {
         <div className="space-motif planet-sphere w-56 h-56 -right-20 -bottom-16" />
         <div className="relative flex flex-wrap items-end justify-center gap-x-16 gap-y-10 max-w-5xl mx-auto">
           {[
-            { value: "1", suffix: "+", label: "App live on the App Store" },
+            { value: "2", suffix: "", label: "Products live: Axend and slashloop" },
             { value: "60", suffix: "%", label: "Head start from the shared Core" },
             { value: "2", suffix: "×", label: "Faster shipping, one codebase" },
             { value: "100", suffix: "%", label: "Of capital funds product & ads, not payroll" },
@@ -475,7 +394,7 @@ export default function Home() {
                 {
                   n: "3",
                   title: "All-in on BalkanBit",
-                  body: "ZeroShots is live. The Core is built. The machine needs capital to compound.",
+                  body: "Axend and slashloop are live. The Core is built. The machine needs capital to compound.",
                 },
               ].map((step) => (
                 <div key={step.n} className="flex gap-5">
@@ -524,115 +443,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contact" className="border-t border-border-faint">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 py-16">
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <Logo href="#" className="text-xl" />
-              <p className="mt-4 text-small text-text-3">
-                A venture building studio shipping mobile products from Sofia to the world.
-              </p>
-            </div>
-
-            <div>
-              <p className="text-label font-semibold uppercase tracking-[0.08em] text-text-4 mb-5">
-                Navigate
-              </p>
-              <div className="space-y-2.5 text-small text-text-2">
-                <div><a href="#model" className="hover:text-accent transition-colors">Venture Model</a></div>
-                <div><a href="#portfolio" className="hover:text-accent transition-colors">Portfolio</a></div>
-                <div><a href="#investors" className="hover:text-accent transition-colors">For Investors</a></div>
-                <div>
-                  <a
-                    href="https://zeroshots.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors"
-                  >
-                    ZeroShots.app ↗
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-label font-semibold uppercase tracking-[0.08em] text-text-4 mb-5">
-                Legal & Contact
-              </p>
-              <div className="space-y-1.5 text-small text-text-3">
-                <p className="text-text-1 font-semibold">Pazaruvai Umno EOOD</p>
-                <p>Lyulin District, Lyulin 2, bl. 235</p>
-                <p>ent. V, fl. 2, apt. 81</p>
-                <p>Sofia, 1343, Bulgaria</p>
-                <div className="pt-2 space-y-1">
-                  <p>D-U-N-S: 525523661</p>
-                  <p>
-                    <a href="tel:+19294657840" className="hover:text-accent transition-colors">
-                      +1 929-465-7840
-                    </a>
-                  </p>
-                  <p>
-                    <a href="mailto:manol@balkanbit.app" className="text-accent hover:text-accent-link-hover transition-colors">
-                      manol@balkanbit.app
-                    </a>
-                  </p>
-                </div>
-                <div className="pt-2 space-y-1">
-                  <p>
-                    <a href="/axend/privacy-policy" className="hover:text-accent transition-colors">
-                      Axend Privacy Policy
-                    </a>
-                  </p>
-                  <p>
-                    <a href="/axend/terms" className="hover:text-accent transition-colors">
-                      Axend Terms of Use
-                    </a>
-                  </p>
-                  <p>
-                    <a href="/mathly/privacy-policy" className="hover:text-accent transition-colors">
-                      Mathly Privacy Policy
-                    </a>
-                  </p>
-                  <p>
-                    <a href="/mathly/terms" className="hover:text-accent transition-colors">
-                      Mathly Terms of Use
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-border-faint pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-small text-text-4">
-            <p>&copy; {new Date().getFullYear()} BalkanBit. All rights reserved.</p>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.linkedin.com/in/man0l/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center text-text-1 hover:border-accent hover:text-accent transition-colors"
-              >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a
-                href="mailto:manol@balkanbit.app"
-                aria-label="Email"
-                className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center text-text-1 hover:border-accent hover:text-accent transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" viewBox="0 0 24 24">
-                  <rect x="2" y="4" width="20" height="16" rx="3" />
-                  <path d="m2 7 10 6 10-6" />
-                </svg>
-              </a>
-            </div>
-            <p>Registered entity · D-U-N-S 525523661 · Sofia, BG</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

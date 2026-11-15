@@ -5,11 +5,14 @@ export function SectionHeader({
   title,
   lead,
   className = "",
+  as: Heading = "h2",
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   lead?: string;
   className?: string;
+  /** Use "h1" when the header opens a page */
+  as?: "h1" | "h2";
 }) {
   return (
     <div className={`text-center ${className}`}>
@@ -18,7 +21,7 @@ export function SectionHeader({
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-4 text-h2 md:text-h1 font-bold text-balance">{title}</h2>
+      <Heading className="mt-4 text-h2 md:text-h1 font-bold text-balance">{title}</Heading>
       {lead && (
         <p className="mt-6 text-lead text-text-2 max-w-2xl mx-auto">{lead}</p>
       )}
