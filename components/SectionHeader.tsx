@@ -1,5 +1,5 @@
-/* Section opener — faint uppercase eyebrow, bold display title (accent a key phrase
-   via a nested span), optional muted lead */
+/* Section opener — uppercase label eyebrow, bold title (accent ONE key phrase
+   via a nested <span className="text-accent">), optional lead */
 export function SectionHeader({
   eyebrow,
   title,
@@ -14,15 +14,13 @@ export function SectionHeader({
   return (
     <div className={`text-center ${className}`}>
       {eyebrow && (
-        <span className="text-[15px] font-semibold uppercase tracking-[0.05em] text-text-4">
+        <span className="text-label font-semibold uppercase tracking-[0.08em] text-text-4">
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-4 text-[34px] md:text-[56px] font-bold leading-[1.16]">{title}</h2>
+      <h2 className="mt-4 text-h2 md:text-h1 font-bold text-balance">{title}</h2>
       {lead && (
-        <p className="mt-6 text-text-2 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-          {lead}
-        </p>
+        <p className="mt-6 text-lead text-text-2 max-w-2xl mx-auto">{lead}</p>
       )}
     </div>
   );
