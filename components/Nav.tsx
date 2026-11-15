@@ -44,9 +44,11 @@ export function Nav({
 
           <div className="flex items-center gap-1">
             {cta && (
-              <Button href={cta.href} className="hidden sm:inline-flex">
-                {cta.label}
-              </Button>
+              <span className="hidden sm:block">
+                <Button href={cta.href} className="whitespace-nowrap">
+                  {cta.label}
+                </Button>
+              </span>
             )}
             <button
               type="button"
