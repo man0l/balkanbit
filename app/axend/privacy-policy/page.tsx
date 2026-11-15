@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Diamond } from "@/components";
 
 export const metadata: Metadata = {
   title: "Axend — Privacy Policy | BalkanBit",
@@ -16,8 +17,8 @@ function Section({
 }) {
   return (
     <section className="mb-10">
-      <h2 className="text-xl font-semibold text-white mb-4">{title}</h2>
-      <div className="space-y-4 text-[15px] leading-relaxed text-[#8ca0c8]">
+      <h2 className="text-h3 font-semibold text-text-1 mb-4">{title}</h2>
+      <div className="space-y-4 text-body text-text-3">
         {children}
       </div>
     </section>
@@ -26,26 +27,27 @@ function Section({
 
 export default function AxendPrivacyPolicy() {
   return (
-    <main className="min-h-screen">
-      <header className="border-b border-white/[0.07]">
+    <main id="main" className="min-h-screen">
+      <header className="border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link href="/" className="font-mono text-lg font-bold">
-            <span className="text-[#4f8fff]">Balkan</span>Bit
+          <Link href="/" className="inline-flex items-center gap-2.5 font-extrabold text-lg tracking-tight">
+            <Diamond className="bg-accent-brand" />
+            BalkanBit
           </Link>
-          <span className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase">
+          <span className="text-label font-semibold uppercase tracking-[0.08em] text-accent">
             Legal
           </span>
         </div>
       </header>
 
       <article className="max-w-3xl mx-auto px-6 py-16">
-        <p className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase mb-4">
+        <p className="text-label font-semibold uppercase tracking-[0.08em] text-accent mb-4">
           Axend
         </p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+        <h1 className="text-h2 md:text-h1 font-bold text-text-1 mb-3">
           Privacy Policy
         </h1>
-        <p className="text-sm text-[#8ca0c8] mb-12">
+        <p className="text-small text-text-3 mb-12">
           Effective date: August 24, 2026 · Applies to the Axend mobile
           application for iOS and Android (com.balkanbit.looxmaxxing)
         </p>
@@ -67,7 +69,7 @@ export default function AxendPrivacyPolicy() {
             Questions about this policy or your data:{" "}
             <a
               href="mailto:manol@balkanbit.app"
-              className="text-[#4f8fff] hover:underline"
+              className="text-accent hover:text-accent-link-hover hover:underline"
             >
               manol@balkanbit.app
             </a>
@@ -85,7 +87,7 @@ export default function AxendPrivacyPolicy() {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              Photos are stored <strong className="text-white">locally on your
+              Photos are stored <strong className="text-text-1">locally on your
               device</strong>. You can delete them at any time in{" "}
               <em>Profile → Privacy → Delete my photos</em>.
             </li>
@@ -96,9 +98,9 @@ export default function AxendPrivacyPolicy() {
             </li>
             <li>
               Our scoring service sends the photos to{" "}
-              <strong className="text-white">OpenAI</strong> to produce your
+              <strong className="text-text-1">OpenAI</strong> to produce your
               trait scores, and{" "}
-              <strong className="text-white">
+              <strong className="text-text-1">
                 deletes both photos from our servers immediately after scoring
               </strong>
               . Only the numeric scores are returned to your device.
@@ -110,7 +112,7 @@ export default function AxendPrivacyPolicy() {
               automatically.
             </li>
             <li>
-              Your photos are <strong className="text-white">never</strong>{" "}
+              Your photos are <strong className="text-text-1">never</strong>{" "}
               used to identify you, sold, shared for advertising, or used to
               train AI models.
             </li>
@@ -120,17 +122,17 @@ export default function AxendPrivacyPolicy() {
         <Section title="3. Categories of data we process">
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">Face photos</strong> — front and
+              <strong className="text-text-1">Face photos</strong> — front and
               profile photos, processed transiently as described in Section 2.
             </li>
             <li>
-              <strong className="text-white">Scan results and onboarding
+              <strong className="text-text-1">Scan results and onboarding
               answers</strong> — your trait scores, selected concerns, and
               goals are stored only on your device. They are removed when you
               delete the App.
             </li>
             <li>
-              <strong className="text-white">Anonymous app identifier</strong>{" "}
+              <strong className="text-text-1">Anonymous app identifier</strong>{" "}
               — a random identifier generated by our subscription provider
               (RevenueCat). It is sent with scan requests to enforce fair-use
               limits and to associate your subscription with your device. It
@@ -138,7 +140,7 @@ export default function AxendPrivacyPolicy() {
               no user accounts.
             </li>
             <li>
-              <strong className="text-white">Purchase data</strong> — if you
+              <strong className="text-text-1">Purchase data</strong> — if you
               subscribe, Apple or Google processes the payment. We and our
               processor RevenueCat receive the anonymous identifier, product
               purchased, subscription status, device platform, and locale. We
@@ -146,7 +148,7 @@ export default function AxendPrivacyPolicy() {
             </li>
           </ul>
           <p>
-            We do <strong className="text-white">not</strong> collect your
+            We do <strong className="text-text-1">not</strong> collect your
             name, email address, phone number, contacts, or location. The App
             contains no advertising and no third-party analytics SDKs, and it
             does not track you across other companies&rsquo; apps or websites.
@@ -156,7 +158,7 @@ export default function AxendPrivacyPolicy() {
         <Section title="4. Lawful bases for processing">
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">Consent (Art. 6(1)(a) and Art.
+              <strong className="text-text-1">Consent (Art. 6(1)(a) and Art.
               9(2)(a) GDPR)</strong> — for capturing and processing your face
               photos, and for sending those photos to OpenAI. You confirm this
               on the in-app screen that names OpenAI before any photo is
@@ -167,17 +169,17 @@ export default function AxendPrivacyPolicy() {
               running further scans.
             </li>
             <li>
-              <strong className="text-white">Performance of a contract (Art.
+              <strong className="text-text-1">Performance of a contract (Art.
               6(1)(b) GDPR)</strong> — to deliver the scoring service and
               manage your subscription and purchases.
             </li>
             <li>
-              <strong className="text-white">Legitimate interest (Art. 6(1)(f)
+              <strong className="text-text-1">Legitimate interest (Art. 6(1)(f)
               GDPR)</strong> — to prevent fraud and abuse of the scanning
               service and to keep the service secure.
             </li>
             <li>
-              <strong className="text-white">Legal obligation (Art. 6(1)(c)
+              <strong className="text-text-1">Legal obligation (Art. 6(1)(c)
               GDPR)</strong> — to keep transaction records required by tax and
               accounting law.
             </li>
@@ -191,17 +193,17 @@ export default function AxendPrivacyPolicy() {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">RevenueCat, Inc.</strong> —
+              <strong className="text-text-1">RevenueCat, Inc.</strong> —
               subscription management (anonymous identifier, purchase and
               entitlement data).
             </li>
             <li>
-              <strong className="text-white">Cloud hosting and storage
+              <strong className="text-text-1">Cloud hosting and storage
               providers</strong> — host our scoring API and the temporary
               photo storage described in Section 2.
             </li>
             <li>
-              <strong className="text-white">OpenAI, Inc.</strong> — AI
+              <strong className="text-text-1">OpenAI, Inc.</strong> — AI
               inference for trait scoring and optional avatar previews. Face
               photos are processed transiently to compute the result; they are
               not retained by OpenAI or used for model training. OpenAI is
@@ -209,7 +211,7 @@ export default function AxendPrivacyPolicy() {
               equal protection of this data.
             </li>
             <li>
-              <strong className="text-white">Apple App Store / Google
+              <strong className="text-text-1">Apple App Store / Google
               Play</strong> — payment processing under their own privacy
               policies.
             </li>
@@ -225,17 +227,17 @@ export default function AxendPrivacyPolicy() {
         <Section title="6. Retention">
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">Photos on our servers</strong> —
+              <strong className="text-text-1">Photos on our servers</strong> —
               deleted immediately after scoring; generated avatar images
               expire automatically.
             </li>
             <li>
-              <strong className="text-white">Photos, scores, and answers on
+              <strong className="text-text-1">Photos, scores, and answers on
               your device</strong> — kept until you delete them in the App or
               uninstall the App.
             </li>
             <li>
-              <strong className="text-white">Purchase records</strong> — kept
+              <strong className="text-text-1">Purchase records</strong> — kept
               for the duration of your subscription and thereafter up to 10
               years where required by Bulgarian tax and accounting law.
             </li>
@@ -258,7 +260,7 @@ export default function AxendPrivacyPolicy() {
             with your anonymous identifier — email{" "}
             <a
               href="mailto:manol@balkanbit.app"
-              className="text-[#4f8fff] hover:underline"
+              className="text-accent hover:text-accent-link-hover hover:underline"
             >
               manol@balkanbit.app
             </a>{" "}
@@ -299,7 +301,7 @@ export default function AxendPrivacyPolicy() {
               Email (qualified electronic signature required):{" "}
               <a
                 href="mailto:kzld@cpdp.bg"
-                className="text-[#4f8fff] hover:underline"
+                className="text-accent hover:text-accent-link-hover hover:underline"
               >
                 kzld@cpdp.bg
               </a>
@@ -310,7 +312,7 @@ export default function AxendPrivacyPolicy() {
                 href="https://www.cpdp.bg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#4f8fff] hover:underline"
+                className="text-accent hover:text-accent-link-hover hover:underline"
               >
                 https://www.cpdp.bg
               </a>
@@ -326,13 +328,13 @@ export default function AxendPrivacyPolicy() {
           </p>
         </Section>
 
-        <footer className="pt-8 border-t border-white/[0.07] text-sm text-[#8ca0c8]">
+        <footer className="pt-8 border-t border-border text-small text-text-3">
           <p>
             &ldquo;Pazaruvai Umno&rdquo; EOOD · UIC 206373314 · Sofia,
             Bulgaria ·{" "}
             <Link
               href="/axend/terms"
-              className="text-[#4f8fff] hover:underline"
+              className="text-accent hover:text-accent-link-hover hover:underline"
             >
               Terms of Use
             </Link>

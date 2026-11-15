@@ -1,117 +1,113 @@
 @import "tailwindcss";
 
+/* ===== BalkanBit design system v0.2 =====
+   Solid text tones (AA on every surface), Signal Red split by job,
+   semantic status colours, 9-step type scale. */
 :root {
-  /* ---- Surfaces (Mercury: navy-black page, #191D27 cards, subtle radii) ---- */
+  /* ---- Surfaces (elevation by lightness, no shadows) ---- */
   --bg: #090C15;
   --bg-alt: #0C0F1A;
+  --surface-1: #12151F;
   --surface: #191D27;
   --surface-2: #212633;
-  --screen: #000000;
-  --bezel: #17171D;
 
   /* ---- Borders ---- */
-  --border: rgba(255, 255, 255, 0.08);
-  --border-faint: rgba(255, 255, 255, 0.06);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-faint: #FFFFFF0F;
+  --border: #FFFFFF1A;
+  --border-strong: #FFFFFF33;
 
-  /* ---- Text (Mercury: #FAFBFB ladder via opacity) ---- */
+  /* ---- Text (solid, every tone passes AA on every surface) ---- */
   --text-1: #FAFBFB;
-  --text-2: rgba(250, 251, 251, 0.8);
-  --text-3: rgba(250, 251, 251, 0.6);
-  --text-lead: rgba(250, 251, 251, 0.8);
-  --text-4: rgba(250, 251, 251, 0.45);
+  --text-2: #C9CCD3;
+  --text-3: #A3A7B1;
+  --text-4: #8B909B;
 
-  /* ---- Accent: Mercury red #FF0044 ---- */
-  --accent: #FF0044;
-  --accent-hover: #FF2E63;
-  --accent-link-hover: #FF5C82;
-  --accent-soft: rgba(255, 0, 68, 0.12);
-  --accent-badge: rgba(255, 0, 68, 0.14);
-  --accent-border: rgba(255, 0, 68, 0.45);
-  --accent-glow: rgba(255, 0, 68, 0.16);
-  --accent-on-tint: #E5B4BF;
+  /* ---- Signal Red, split by job ---- */
+  --accent-brand: #FF0044;      /* logo, Diamond, sparkles, display text >= 32px */
+  --accent-fill: #E0003C;       /* button fills behind white labels (4.96:1) */
+  --accent-fill-hover: #C70035; /* hover / pressed (6.03:1) */
+  --accent-text: #FF4D73;       /* links, accent phrase, focus ring */
+  --accent-link-hover: #FF7A95;
+  --accent-soft: #FF4D7324;
 
-  /* ---- Positive: live / shipped / winning only ---- */
-  --positive: #34D399;
-  --positive-soft: rgba(52, 211, 153, 0.12);
+  /* ---- Status (never the brand red; always paired with a label) ---- */
+  --positive: #34D399; --positive-soft: #34D39924;
+  --info: #6CA8FF;     --info-soft: #6CA8FF24;
+  --warning: #F5B544;  --warning-soft: #F5B54424;
+  --danger: #FF8A5B;   --danger-soft: #FF8A5B24;
 
-  /* ---- Atmosphere ---- */
-  --glow-cool: rgba(56, 140, 255, 0.35);
+  /* ---- Atmosphere (space motifs, see .space-motif) ---- */
   --star: rgba(255, 255, 255, 0.6);
   --particle: rgba(255, 255, 255, 0.25);
-  --ghost-number: rgba(255, 255, 255, 0.1);
 
-  /* ---- Type (Mercury scale: 106/62/28 desktop) ---- */
-  --text-display: clamp(48px, 7vw, 106px);
-  --text-h2: clamp(34px, 4.4vw, 62px);
-  --text-h3: 30px;
-  --text-stat: 72px;
-  --text-card-title: 28px;
-  --text-lead-size: clamp(17px, 1.6vw, 22px);
-  --text-body: 16px;
-  --text-eyebrow: 15px;
-  --text-chip: 13px;
-  --text-meta: 11px;
-  --tracking-display: -0.008em;
-  --tracking-eyebrow: 0.05em;
-  --tracking-caps: 0.07em;
-
-  /* ---- Spacing / radii (Mercury: pill buttons, 8px cards) ---- */
-  --radius-pill: 100px;
-  --radius-card: 8px;
-  --radius-card-lg: 12px;
-  --radius-input: 10px;
-  --radius-tile: 8px;
-  --space-section: 120px;
-  --space-gutter: 64px;
-  --content-max: 1180px;
-  --shadow-device: 0 40px 100px rgba(0, 0, 0, 0.6);
-  --shadow-device-sm: 0 30px 60px rgba(0, 0, 0, 0.5);
-
-  /* Back-compat aliases */
-  --background: var(--bg);
-  --foreground: var(--text-1);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent-text);
+  --radius-input: 8px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
+  --color-surface-1: var(--surface-1);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-screen: var(--screen);
-  --color-bezel: var(--bezel);
-  --color-border: var(--border);
-  --color-border-faint: var(--border-faint);
-  --color-border-strong: var(--border-strong);
+
   --color-text-1: var(--text-1);
   --color-text-2: var(--text-2);
   --color-text-3: var(--text-3);
   --color-text-4: var(--text-4);
-  --color-text-lead: var(--text-lead);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-link-hover: var(--accent-link-hover);
+
+  --color-accent: var(--accent-text);          /* text-accent / border-accent: AA-safe */
+  --color-accent-brand: var(--accent-brand);   /* diamonds, logo, display >= 32px */
+  --color-accent-fill: var(--accent-fill);     /* buttons with white labels */
+  --color-accent-fill-hover: var(--accent-fill-hover);
   --color-accent-soft: var(--accent-soft);
-  --color-accent-badge: var(--accent-badge);
-  --color-accent-border: var(--accent-border);
-  --color-positive: var(--positive);
-  --color-positive-soft: var(--positive-soft);
-  --font-display: var(--font-hanken);
-  --font-body: var(--font-hanken);
-  --font-sans: var(--font-hanken);
+  --color-accent-link-hover: var(--accent-link-hover);
+
+  --color-positive: var(--positive); --color-positive-soft: var(--positive-soft);
+  --color-info: var(--info);         --color-info-soft: var(--info-soft);
+  --color-warning: var(--warning);   --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);     --color-danger-soft: var(--danger-soft);
+
+  --color-border: var(--border);
+  --color-border-faint: var(--border-faint);
+  --color-border-strong: var(--border-strong);
+
+  --text-display: clamp(3rem, 7vw, 6.5rem);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: 3.5rem;    --text-h1--line-height: 1.08;
+  --text-h2: 2.5rem;    --text-h2--line-height: 1.12;
+  --text-h3: 1.75rem;   --text-h3--line-height: 1.2;
+  --text-lead: 1.25rem; --text-lead--line-height: 1.55;
+  --text-body: 1rem;    --text-body--line-height: 1.6;
+  --text-small: .875rem; --text-small--line-height: 1.5;
+  --text-label: .75rem; --text-label--line-height: 1.4;
+
+  --font-sans: var(--font-hanken), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text-1);
   font-family: var(--font-hanken), Arial, Helvetica, sans-serif;
 }
 
+*:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 ::selection {
-  background: var(--accent);
+  background: var(--accent-fill);
   color: #fff;
+}
+
+/* ---- Space motifs: starfield, sparkles, planet spheres, planet horizon.
+   Every motif element carries .space-motif; set data-motifs="off" on an
+   ancestor (the <main> of a page) to hide them all. ---- */
+[data-motifs="off"] .space-motif {
+  display: none;
 }
 
 /* ---- Starfield: layered radial-gradient star dots, Mercury hero/section atmosphere ---- */
@@ -142,7 +138,8 @@ body {
 }
 
 .sparkle-accent {
-  background: rgba(255, 0, 68, 0.55);
+  background: var(--accent-brand);
+  opacity: 0.55;
 }
 
 /* ---- Planet sphere: floating dark orbs in the stats section ---- */
@@ -171,24 +168,37 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.7s ease forwards;
+  animation: fade-in-up 0.4s ease-out forwards;
 }
 
 .animate-fade-in-up-delay-1 {
-  animation: fade-in-up 0.7s ease 0.15s forwards;
+  animation: fade-in-up 0.4s ease-out 0.15s forwards;
   opacity: 0;
 }
 
 .animate-fade-in-up-delay-2 {
-  animation: fade-in-up 0.7s ease 0.3s forwards;
+  animation: fade-in-up 0.4s ease-out 0.3s forwards;
   opacity: 0;
 }
 
 .animate-fade-in-up-delay-3 {
-  animation: fade-in-up 0.7s ease 0.45s forwards;
+  animation: fade-in-up 0.4s ease-out 0.45s forwards;
   opacity: 0;
 }
 
 .glow-dot {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* reveal classes start at opacity 0; show them when animation is off */
+  .animate-fade-in-up-delay-1,
+  .animate-fade-in-up-delay-2,
+  .animate-fade-in-up-delay-3 {
+    opacity: 1;
+  }
 }

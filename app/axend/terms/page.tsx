@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Diamond } from "@/components";
 
 export const metadata: Metadata = {
   title: "Axend — Terms of Use | BalkanBit",
@@ -16,8 +17,8 @@ function Section({
 }) {
   return (
     <section className="mb-10">
-      <h2 className="text-xl font-semibold text-white mb-4">{title}</h2>
-      <div className="space-y-4 text-[15px] leading-relaxed text-[#8ca0c8]">
+      <h2 className="text-h3 font-semibold text-text-1 mb-4">{title}</h2>
+      <div className="space-y-4 text-body text-text-3">
         {children}
       </div>
     </section>
@@ -26,26 +27,27 @@ function Section({
 
 export default function AxendTerms() {
   return (
-    <main className="min-h-screen">
-      <header className="border-b border-white/[0.07]">
+    <main id="main" className="min-h-screen">
+      <header className="border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link href="/" className="font-mono text-lg font-bold">
-            <span className="text-[#4f8fff]">Balkan</span>Bit
+          <Link href="/" className="inline-flex items-center gap-2.5 font-extrabold text-lg tracking-tight">
+            <Diamond className="bg-accent-brand" />
+            BalkanBit
           </Link>
-          <span className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase">
+          <span className="text-label font-semibold uppercase tracking-[0.08em] text-accent">
             Legal
           </span>
         </div>
       </header>
 
       <article className="max-w-3xl mx-auto px-6 py-16">
-        <p className="text-xs font-mono text-[#4f8fff] tracking-widest uppercase mb-4">
+        <p className="text-label font-semibold uppercase tracking-[0.08em] text-accent mb-4">
           Axend
         </p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+        <h1 className="text-h2 md:text-h1 font-bold text-text-1 mb-3">
           Terms of Use
         </h1>
-        <p className="text-sm text-[#8ca0c8] mb-12">
+        <p className="text-small text-text-3 mb-12">
           Effective date: July 3, 2026 · Applies to the Axend mobile
           application for iOS and Android
         </p>
@@ -118,7 +120,7 @@ export default function AxendTerms() {
             How we handle your photos and other data is described in the{" "}
             <Link
               href="/axend/privacy-policy"
-              className="text-[#4f8fff] hover:underline"
+              className="text-accent hover:text-accent-link-hover hover:underline"
             >
               Privacy Policy
             </Link>
@@ -142,7 +144,7 @@ export default function AxendTerms() {
             acceptance. Contact:{" "}
             <a
               href="mailto:manol@balkanbit.app"
-              className="text-[#4f8fff] hover:underline"
+              className="text-accent hover:text-accent-link-hover hover:underline"
             >
               manol@balkanbit.app
             </a>
@@ -150,13 +152,13 @@ export default function AxendTerms() {
           </p>
         </Section>
 
-        <footer className="pt-8 border-t border-white/[0.07] text-sm text-[#8ca0c8]">
+        <footer className="pt-8 border-t border-border text-small text-text-3">
           <p>
             &ldquo;Pazaruvai Umno&rdquo; EOOD · UIC 206373314 · Sofia,
             Bulgaria ·{" "}
             <Link
               href="/axend/privacy-policy"
-              className="text-[#4f8fff] hover:underline"
+              className="text-accent hover:text-accent-link-hover hover:underline"
             >
               Privacy Policy
             </Link>

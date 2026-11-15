@@ -2,8 +2,9 @@ import {
   Button,
   Card,
   Chip,
-  Diamond,
   HexBadge,
+  Logo,
+  Nav,
   SectionHeader,
   StatCounter,
 } from "@/components";
@@ -75,68 +76,76 @@ const advantages = [
   },
 ];
 
+/* Starfield, sparkles, planet spheres and the planet horizon. Flip to false
+   to hide every .space-motif element on the page. */
+const SPACE_MOTIFS = true;
+
+const navLinks = [
+  { href: "#model", label: "Model" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#investors", label: "Investors" },
+  { href: "#founder", label: "Founder" },
+  { href: "#contact", label: "Contact" },
+];
+
+const mailIcon = (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+    <rect x="2" y="4" width="20" height="16" rx="3" />
+    <path d="m2 7 10 6 10-6" />
+  </svg>
+);
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bg text-text-1 overflow-x-hidden">
-      {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-3.5 bg-bg/85 backdrop-blur-md">
-        <a href="#" className="flex items-center gap-2.5">
-          <Diamond className="bg-accent" />
-          <span className="font-bold text-lg tracking-tight">
-            Balkan<span className="text-accent">Bit</span>
-          </span>
-        </a>
-        <div className="hidden md:flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.07em] text-text-1">
-          <a href="#model" className="px-[19px] hover:text-accent transition-colors">Model</a>
-          <a href="#portfolio" className="px-[19px] hover:text-accent transition-colors">Portfolio</a>
-          <a href="#investors" className="px-[19px] hover:text-accent transition-colors">Investors</a>
-          <a href="#founder" className="px-[19px] hover:text-accent transition-colors">Founder</a>
-          <a href="#contact" className="px-[19px] hover:text-accent transition-colors">Contact</a>
-        </div>
-        <a
-          href="mailto:manol@balkanbit.app"
-          className="inline-flex items-center gap-2 text-[15px] font-medium pl-6 pr-8 py-2.5 rounded-full bg-accent hover:bg-accent-hover text-white transition-colors"
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-            <rect x="2" y="4" width="20" height="16" rx="3" />
-            <path d="m2 7 10 6 10-6" />
-          </svg>
-          Request LP Deck
-        </a>
-      </nav>
+    <main
+      id="main"
+      data-motifs={SPACE_MOTIFS ? "on" : "off"}
+      className="min-h-screen bg-bg text-text-1 overflow-x-hidden"
+    >
+      <Nav
+        links={navLinks}
+        cta={{
+          href: "mailto:manol@balkanbit.app",
+          label: (
+            <>
+              {mailIcon}
+              Request LP Deck
+            </>
+          ),
+        }}
+      />
 
       {/* Hero — starfield + planet horizon */}
       <section className="relative flex flex-col items-center min-h-screen text-center px-6 pt-40 pb-0 overflow-hidden">
-        <div className="absolute inset-0 starfield" />
-        <div className="sparkle left-[12%] top-[30%]" />
-        <div className="sparkle sparkle-accent right-[16%] top-[22%]" />
-        <div className="sparkle right-[9%] top-[55%]" />
-        <div className="sparkle left-[7%] top-[62%]" />
+        <div className="space-motif absolute inset-0 starfield" />
+        <div className="space-motif sparkle left-[12%] top-[30%]" />
+        <div className="space-motif sparkle sparkle-accent right-[16%] top-[22%]" />
+        <div className="space-motif sparkle right-[9%] top-[55%]" />
+        <div className="space-motif sparkle left-[7%] top-[62%]" />
 
         <div className="relative z-10 max-w-5xl mx-auto">
-          <p className="text-[13px] md:text-[15px] font-semibold uppercase tracking-[0.07em] text-text-4 mb-6 animate-fade-in-up">
+          <p className="text-label md:text-small font-semibold uppercase tracking-[0.08em] text-text-4 mb-6 animate-fade-in-up">
             Venture studio · Sofia, Bulgaria
           </p>
 
-          <h1 className="font-bold text-balance text-[42px] md:text-[80px] lg:text-[98px] leading-[1.12] tracking-[-0.8px] mb-7 animate-fade-in-up">
+          <h1 className="font-extrabold text-balance text-display mb-7 animate-fade-in-up">
             TikTok trends in.
             <br />
-            <span className="text-accent">Profitable apps out.</span>
+            <span className="text-accent-brand">Profitable apps out.</span>
           </h1>
 
-          <p className="text-lg md:text-[22px] leading-relaxed text-text-2 max-w-2xl mx-auto mb-9 animate-fade-in-up-delay-1">
+          <p className="text-lead text-text-2 max-w-2xl mx-auto mb-9 animate-fade-in-up-delay-1">
             We mine TikTok for proven demand, ship the app in weeks, and scale
             winners with studio capital. Investors own a piece of every launch.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-6 justify-center animate-fade-in-up-delay-2">
-            <Button href="mailto:manol@balkanbit.app">Join the Journey — Invest</Button>
-            <a
-              href="#portfolio"
-              className="text-[13px] font-semibold uppercase tracking-[0.07em] text-text-2 hover:text-accent transition-colors"
-            >
+            <Button href="mailto:manol@balkanbit.app" size="lg">
+              Join the Journey — Invest
+            </Button>
+            <Button href="#portfolio" variant="secondary" size="lg">
               See what&apos;s live ↓
-            </a>
+            </Button>
           </div>
         </div>
 
@@ -146,7 +155,7 @@ export default function Home() {
             src="/gen/planet-horizon.webp"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-[center_55%]"
+            className="space-motif absolute inset-0 w-full h-full object-cover object-[center_55%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-bg via-transparent to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-bg to-transparent" />
@@ -200,16 +209,16 @@ export default function Home() {
               ].map((b) => (
                 <div key={b.caption} className="flex flex-col items-center gap-2.5">
                   <HexBadge>{b.icon}</HexBadge>
-                  <span className="text-2xl font-extrabold leading-none">
+                  <span className="font-mono text-h3 font-semibold leading-none">
                     {b.stat}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.07em] text-text-2 max-w-[150px] leading-relaxed">
+                  <span className="text-label font-semibold uppercase tracking-[0.08em] text-text-2 max-w-[160px]">
                     {b.caption}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-[10px] text-text-4 tracking-wide">
+            <p className="mt-8 text-label text-text-4">
               Startup-studio model benchmarks — Global Startup Studio Network research
             </p>
           </div>
@@ -228,9 +237,9 @@ export default function Home() {
 
       {/* Venture Building Model */}
       <section id="model" className="relative py-24 md:py-[120px] px-6 md:px-12 overflow-hidden">
-        <div className="absolute inset-0 starfield opacity-50" />
-        <div className="sparkle left-[6%] top-[18%]" />
-        <div className="sparkle right-[8%] top-[40%]" />
+        <div className="space-motif absolute inset-0 starfield opacity-50" />
+        <div className="space-motif sparkle left-[6%] top-[18%]" />
+        <div className="space-motif sparkle right-[8%] top-[40%]" />
         <div className="relative max-w-6xl mx-auto">
           <SectionHeader
             className="mb-16"
@@ -252,10 +261,10 @@ export default function Home() {
               >
                 <div className="p-6 pb-4 flex items-start justify-between">
                   <div>
-                    <h3 className="text-[22px] font-bold leading-snug">{p.phase}</h3>
-                    <p className="text-text-3 text-sm leading-relaxed mt-2 min-h-[60px]">{p.action}</p>
+                    <h3 className="text-h3 font-bold">{p.phase}</h3>
+                    <p className="text-text-3 text-small mt-2 min-h-[63px]">{p.action}</p>
                   </div>
-                  <span className="text-sm font-bold text-text-4 pt-1.5">0{i + 1}</span>
+                  <span className="font-mono text-small font-semibold text-text-4 pt-1.5">0{i + 1}</span>
                 </div>
                 <div className="relative w-full aspect-[3/2] overflow-hidden">
                   <img
@@ -298,19 +307,19 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/30" />
             <div className="absolute top-0 left-0 right-0 p-8 md:p-10 flex items-start justify-between">
               <div>
-                <h3 className="text-[28px] md:text-[34px] font-bold text-white">ZeroShots</h3>
-                <p className="text-white/80 text-sm mt-1">Tinder for your screenshots</p>
+                <h3 className="text-h3 md:text-h2 font-bold text-white">ZeroShots</h3>
+                <p className="text-white/80 text-small mt-1">Tinder for your screenshots</p>
               </div>
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.07em] text-white bg-black/30 backdrop-blur-sm px-3.5 py-1.5 rounded-full">
+              <span className="inline-flex items-center gap-2 text-label font-semibold uppercase tracking-[0.08em] text-white bg-black/30 backdrop-blur-sm px-3.5 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-positive glow-dot" />
                 Live
               </span>
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 flex items-end justify-between">
-              <p className="text-white/90 text-sm md:text-base max-w-[260px] font-medium leading-snug">
+              <p className="text-white/90 text-small md:text-body max-w-[260px] font-medium leading-snug">
                 200 screenshots deleted in five minutes. Swipe. Done.
               </p>
-              <span className="inline-flex px-6 py-2.5 rounded-full bg-white text-black text-sm font-semibold group-hover:bg-accent group-hover:text-white transition-colors whitespace-nowrap">
+              <span className="inline-flex px-6 py-2.5 rounded-full bg-white text-black text-small font-semibold group-hover:bg-accent-fill group-hover:text-white transition-colors whitespace-nowrap">
                 App Store ↗
               </span>
             </div>
@@ -329,19 +338,19 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/30" />
             <div className="absolute top-0 left-0 right-0 p-8 md:p-10 flex items-start justify-between">
               <div>
-                <h3 className="text-[28px] md:text-[34px] font-bold text-white">Product #2</h3>
-                <p className="text-white/80 text-sm mt-1">In development</p>
+                <h3 className="text-h3 md:text-h2 font-bold text-white">Product #2</h3>
+                <p className="text-white/80 text-small mt-1">In development</p>
               </div>
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.07em] text-white bg-black/30 backdrop-blur-sm px-3.5 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent glow-dot" />
+              <span className="inline-flex items-center gap-2 text-label font-semibold uppercase tracking-[0.08em] text-white bg-black/30 backdrop-blur-sm px-3.5 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-warning glow-dot" />
                 Pipeline
               </span>
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 flex items-end justify-between">
-              <p className="text-white/90 text-sm md:text-base max-w-[260px] font-medium leading-snug">
+              <p className="text-white/90 text-small md:text-body max-w-[260px] font-medium leading-snug">
                 Back the studio now — get in before the next launch.
               </p>
-              <span className="inline-flex px-6 py-2.5 rounded-full bg-accent text-white text-sm font-semibold group-hover:bg-accent-hover transition-colors whitespace-nowrap">
+              <span className="inline-flex px-6 py-2.5 rounded-full bg-accent-fill text-white text-small font-semibold group-hover:bg-accent-fill-hover transition-colors whitespace-nowrap">
                 Get early access
               </span>
             </div>
@@ -351,12 +360,12 @@ export default function Home() {
 
       {/* Stats band */}
       <section className="relative py-20 md:py-24 px-6 overflow-hidden bg-bg-alt">
-        <div className="absolute inset-0 starfield opacity-40" />
-        <div className="planet-sphere w-40 h-40 -left-14 top-10" />
-        <div className="planet-sphere w-56 h-56 -right-20 -bottom-16" />
+        <div className="space-motif absolute inset-0 starfield opacity-40" />
+        <div className="space-motif planet-sphere w-40 h-40 -left-14 top-10" />
+        <div className="space-motif planet-sphere w-56 h-56 -right-20 -bottom-16" />
         <div className="relative flex flex-wrap items-end justify-center gap-x-16 gap-y-10 max-w-5xl mx-auto">
           {[
-            { value: "1", suffix: "", label: "App live on the App Store" },
+            { value: "1", suffix: "+", label: "App live on the App Store" },
             { value: "60", suffix: "%", label: "Head start from the shared Core" },
             { value: "2", suffix: "×", label: "Faster shipping, one codebase" },
             { value: "100", suffix: "%", label: "Of capital funds product & ads, not payroll" },
@@ -373,10 +382,10 @@ export default function Home() {
 
       {/* Investors */}
       <section id="investors" className="relative py-24 md:py-[120px] px-6 md:px-12 overflow-hidden">
-        <div className="absolute inset-0 starfield opacity-60" />
-        <div className="sparkle left-[20%] top-[14%]" />
-        <div className="sparkle sparkle-accent right-[24%] top-[24%]" />
-        <div className="sparkle left-[10%] bottom-[18%]" />
+        <div className="space-motif absolute inset-0 starfield opacity-60" />
+        <div className="space-motif sparkle left-[20%] top-[14%]" />
+        <div className="space-motif sparkle sparkle-accent right-[24%] top-[24%]" />
+        <div className="space-motif sparkle left-[10%] bottom-[18%]" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeader
@@ -396,19 +405,21 @@ export default function Home() {
                   <HexBadge size={52}>{adv.icon}</HexBadge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{adv.title}</h3>
-                <p className="text-sm text-text-3 leading-relaxed">{adv.body}</p>
+                <p className="text-small text-text-3">{adv.body}</p>
               </Card>
             ))}
           </div>
 
           <div className="max-w-3xl mx-auto p-10 md:p-14 rounded-xl bg-surface text-center">
-            <h3 className="text-[30px] md:text-[40px] font-bold leading-tight mb-4">
+            <h3 className="text-h3 md:text-h2 font-bold mb-4">
               One check. <span className="text-accent">Every product.</span>
             </h3>
             <p className="text-text-2 leading-relaxed mb-8 max-w-md mx-auto">
               Not a bet on one app — a stake in everything the studio ships.
             </p>
-            <Button href="mailto:manol@balkanbit.app">Request Limited Partner Deck</Button>
+            <Button href="mailto:manol@balkanbit.app" size="lg">
+              Request Limited Partner Deck
+            </Button>
           </div>
         </div>
       </section>
@@ -435,13 +446,13 @@ export default function Home() {
                 className="w-36 h-36 rounded-full object-cover"
               />
               <div className="text-center md:text-left">
-                <h3 className="text-[24px] font-bold">Manol Trendafilov</h3>
-                <p className="text-text-3 text-sm mt-1">Founder &amp; General Partner</p>
+                <h3 className="text-h3 font-bold">Manol Trendafilov</h3>
+                <p className="text-text-3 text-small mt-1">Founder &amp; General Partner</p>
                 <a
                   href="https://www.linkedin.com/in/man0l/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 text-accent hover:text-accent-link-hover text-sm font-semibold transition-colors"
+                  className="inline-flex items-center gap-2 mt-4 text-accent hover:text-accent-link-hover text-small font-semibold transition-colors"
                 >
                   linkedin.com/in/man0l ↗
                 </a>
@@ -468,12 +479,12 @@ export default function Home() {
                 },
               ].map((step) => (
                 <div key={step.n} className="flex gap-5">
-                  <div className="text-[26px] font-extrabold text-accent flex-shrink-0 w-8 leading-none pt-0.5">
+                  <div className="font-mono text-h3 font-semibold text-accent flex-shrink-0 w-8 leading-none pt-0.5">
                     {step.n}
                   </div>
                   <div>
                     <p className="text-lg font-bold mb-1.5">{step.title}</p>
-                    <p className="text-sm text-text-3 leading-relaxed">{step.body}</p>
+                    <p className="text-small text-text-3">{step.body}</p>
                   </div>
                 </div>
               ))}
@@ -494,21 +505,21 @@ export default function Home() {
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto rounded-xl bg-surface grid md:grid-cols-2 overflow-hidden">
           <div className="p-10 md:p-12 md:border-r md:border-border">
-            <h3 className="text-[28px] md:text-[32px] font-bold text-accent mb-3">Ready to invest?</h3>
-            <p className="text-sm text-text-3 leading-relaxed mb-10">
+            <h3 className="text-h3 font-bold text-accent mb-3">Ready to invest?</h3>
+            <p className="text-small text-text-3 mb-10">
               The LP deck answers the numbers. One email away.
             </p>
-            <a href="mailto:manol@balkanbit.app" className="block text-accent hover:text-accent-link-hover text-sm font-semibold mb-2 transition-colors">
+            <a href="mailto:manol@balkanbit.app" className="block text-accent hover:text-accent-link-hover text-small font-semibold mb-2 transition-colors">
               manol@balkanbit.app
             </a>
-            <a href="tel:+19294657840" className="block text-xl font-bold hover:text-text-2 transition-colors">
+            <a href="tel:+19294657840" className="block font-mono text-xl font-semibold hover:text-text-2 transition-colors">
               +1 929 465 7840
             </a>
           </div>
           <div className="relative hidden md:block">
-            <div className="absolute inset-0 starfield opacity-70" />
-            <div className="sparkle sparkle-accent left-[45%] top-[45%]" />
-            <div className="planet-sphere w-28 h-28 right-8 bottom-8" />
+            <div className="space-motif absolute inset-0 starfield opacity-70" />
+            <div className="space-motif sparkle sparkle-accent left-[45%] top-[45%]" />
+            <div className="space-motif planet-sphere w-28 h-28 right-8 bottom-8" />
           </div>
         </div>
       </section>
@@ -518,22 +529,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 md:px-12 py-16">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <span className="flex items-center gap-2.5 font-bold text-xl">
-                <Diamond className="bg-accent" />
-                <span>
-                  Balkan<span className="text-accent">Bit</span>
-                </span>
-              </span>
-              <p className="mt-4 text-sm text-text-3 leading-relaxed">
+              <Logo href="#" className="text-xl" />
+              <p className="mt-4 text-small text-text-3">
                 A venture building studio shipping mobile products from Sofia to the world.
               </p>
             </div>
 
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.07em] text-text-4 mb-5">
+              <p className="text-label font-semibold uppercase tracking-[0.08em] text-text-4 mb-5">
                 Navigate
               </p>
-              <div className="space-y-2.5 text-sm text-text-2">
+              <div className="space-y-2.5 text-small text-text-2">
                 <div><a href="#model" className="hover:text-accent transition-colors">Venture Model</a></div>
                 <div><a href="#portfolio" className="hover:text-accent transition-colors">Portfolio</a></div>
                 <div><a href="#investors" className="hover:text-accent transition-colors">For Investors</a></div>
@@ -551,10 +557,10 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.07em] text-text-4 mb-5">
+              <p className="text-label font-semibold uppercase tracking-[0.08em] text-text-4 mb-5">
                 Legal & Contact
               </p>
-              <div className="space-y-1.5 text-sm text-text-3">
+              <div className="space-y-1.5 text-small text-text-3">
                 <p className="text-text-1 font-semibold">Pazaruvai Umno EOOD</p>
                 <p>Lyulin District, Lyulin 2, bl. 235</p>
                 <p>ent. V, fl. 2, apt. 81</p>
@@ -598,7 +604,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-border-faint pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] text-text-4">
+          <div className="border-t border-border-faint pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-small text-text-4">
             <p>&copy; {new Date().getFullYear()} BalkanBit. All rights reserved.</p>
             <div className="flex items-center gap-3">
               <a
@@ -606,7 +612,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full border border-border-strong flex items-center justify-center text-text-1 hover:border-accent hover:text-accent transition-colors"
+                className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center text-text-1 hover:border-accent hover:text-accent transition-colors"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -615,7 +621,7 @@ export default function Home() {
               <a
                 href="mailto:manol@balkanbit.app"
                 aria-label="Email"
-                className="w-9 h-9 rounded-full border border-border-strong flex items-center justify-center text-text-1 hover:border-accent hover:text-accent transition-colors"
+                className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center text-text-1 hover:border-accent hover:text-accent transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" viewBox="0 0 24 24">
                   <rect x="2" y="4" width="20" height="16" rx="3" />
