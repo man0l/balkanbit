@@ -190,6 +190,67 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "calmexam",
+    name: "CalmExam",
+    tagline: "Exam math practice that's never wrong.",
+    meta: "iOS + Android app + calmexam.com · Nov 2026",
+    status: "building",
+    statusNote: "calmexam.com is live with free practice and a launch waitlist; the app is coming to iOS and Android",
+    summary:
+      "A calm exam coach for SAT Math, AP Calculus AB and A-Level Maths: a 5-question placement builds a daily plan, and every practice answer is computed by a generator, not predicted by a model.",
+    icon: "/portfolio/calmexam/icon.webp",
+    cover: { src: "/portfolio/calmexam/screen-today.webp", alt: "CalmExam Today screen with days left and daily goal", fit: "cover-top" },
+    screens: [
+      { src: "/portfolio/calmexam/screen-plan.webp", alt: "CalmExam plan reveal with projected SAT Math score" },
+      { src: "/portfolio/calmexam/screen-answer.webp", alt: "CalmExam verified answer with steps and common pitfalls" },
+      { src: "/portfolio/calmexam/screen-explain.webp", alt: "CalmExam explaining a mistake from the verified steps" },
+    ],
+    screensLayout: "phones",
+    links: [
+      { label: "Visit calmexam.com", href: "https://calmexam.com" },
+      { label: "Try a free practice test", href: "https://calmexam.com/sat-math-practice-test" },
+    ],
+    facts: [
+      { eyebrow: "Exams", value: "3", label: "SAT Math, AP Calculus AB, A-Level Maths" },
+      { eyebrow: "Generators", value: "35", label: "Problem templates with computed answers" },
+      { eyebrow: "Checked", value: "3,000", label: "Seeds verified per template on every build" },
+      { eyebrow: "Free pages", value: "21", label: "Topic practice pages, 10 fresh questions daily" },
+    ],
+    problem:
+      "AI photo solvers predict an answer from a picture. Usually that works, but on exam prep \"usually\" isn't good enough: a misread sign changes the answer, and the tone stays confident either way. They also solve homework rather than plan the weeks before an exam.",
+    approach: [
+      "Every problem comes from an on-device generator that computes the answer and the steps together, so the app can say \"Verified answer\" plainly. A script generates every template across 3,000 seeds and checks the answers.",
+      "AI is used only to explain a mistake, grounded in the verified steps, and it can't change the answer. Students pick their exam and date, take a 5-question placement, and get a short daily plan focused on their weakest topics.",
+      "The design is deliberately quiet: no confetti, no red badges, no countdown pressure, one problem at a time.",
+    ],
+    features: [
+      { title: "Exam and date", body: "SAT Math, AP Calculus AB or A-Level Maths, with days left counted for you." },
+      { title: "5-question placement", body: "Real questions across the syllabus find the topics that need you most." },
+      { title: "Projected plan", body: "Minutes per day, focus topics and where steady practice can take you." },
+      { title: "Verified answers", body: "The answer, numbered steps and the pitfalls that catch most students." },
+      { title: "Explain my mistake", body: "A coach grounded in the verified steps, never a guessed answer." },
+      { title: "Calm daily goal", body: "Today's goal, the week at a glance and days to the exam." },
+    ],
+    extra: {
+      eyebrow: "Distribution",
+      title: "The website is the free front door",
+      body: [
+        "calmexam.com runs on one Cloudflare Worker that serves the marketing site, the practice pages and the API from the same verified problem engine as the app.",
+        "Each exam hub and topic page renders ten fresh questions a day server-side, so the site earns search traffic with real practice instead of thin content, and every page invites students onto the launch waitlist.",
+      ],
+      bullets: [
+        "3 exam hubs and 21 topic practice pages, no account needed",
+        "A free 3-question SAT set on the homepage, regenerated daily",
+        "Waitlist stored in Cloudflare D1, segmented by exam and platform",
+      ],
+    },
+    stack: [
+      { group: "App", items: ["Expo", "React Native", "On-device problem engine", "RevenueCat"] },
+      { group: "Web + API", items: ["Cloudflare Workers", "D1", "Workers AI (Llama 3.1)", "esbuild"] },
+      { group: "Quality", items: ["Engine verifier (3,000 seeds × template)", "Deterministic demo states for screenshots"] },
+    ],
+  },
+  {
     slug: "zeroshots",
     name: "ZeroShots",
     tagline: "Tinder for your screenshots.",
